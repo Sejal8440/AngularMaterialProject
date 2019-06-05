@@ -1,0 +1,19 @@
+<div id="container">
+<form [formGroup]="profileForm" (ngSubmit)="login(loginForm)" #loginForm="ngForm">
+    <div>
+      <label><b>Username</b></label>
+         <input type="text" placeholder="Enter Username" class="form-contorl" formControlName="uName" autofocus>
+      <div class="alert alert-danger" *ngIf="profileForm.get('uName').hasError('required') && profileForm.get('uName').touched">required</div>
+     
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" formControlName="uPassword">
+      <div class="alert alert-danger" *ngIf="profileForm.get('uPassword').hasError('required') && profileForm.get('uPassword').touched">required</div>
+      <div style="text-align: center; margin-top: 10px;">
+        <button type="submit" class="login_btn pad_40">Login</button>
+        <button class="pad_40" (click)="registrationForm()">Register</button>
+      </div>
+    </div>
+    
+  </form>
+</div>
+

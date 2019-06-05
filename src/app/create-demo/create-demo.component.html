@@ -1,0 +1,33 @@
+<form class="example-form">
+  
+  <fieldset class="field_wid">
+    <legend>Create Sample:</legend>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Business Name">
+    </mat-form-field><br>
+
+    <label for="singleFile">Business Logo:</label>
+    <input id="singleFile" type="file" />
+
+
+    <mat-file-upload-queue #fileUploadQueue [fileAlias]="'file'"
+      [httpUrl]="'http://localhost:8180/jax-rs-jersey-application-sample'">
+
+      <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index">
+      </mat-file-upload>
+    </mat-file-upload-queue>
+
+    <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Description"></textarea>
+    </mat-form-field><br>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Contact Number">
+      </mat-form-field><br>
+    
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email">
+        </mat-form-field>
+  </fieldset>
+
+</form>

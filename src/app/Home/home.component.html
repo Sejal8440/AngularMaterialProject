@@ -1,0 +1,68 @@
+<section class="sec_mar">
+  <article>
+    <h3>Dependency Providers</h3>
+    <p>A dependency provider configures an injector with a DI token, which that injector uses to provide the concrete, runtime version of a dependency value. The injector relies on the provider configuration to create instances of the dependencies that it injects into components, directives, pipes, and other services.
+      You must configure an injector with a provider, or it won't know how to create the dependency. The most obvious way for an injector to create an instance of a service class is with the class itself. If you specify the service class itself as the provider token, the default behavior is for the injector to instantiate that class with new.
+      In the following typical example, the Logger class itself provides a Logger instance.</p>
+  </article>
+
+  <article>
+    <h3>The Provider object literal</h3>
+    <p>The class-provider syntax is a shorthand expression that expands into a provider configuration, defined by the Provider interface. The following code snippets shows how a class that is given as the providers value is expanded into a full provider object.</p>
+  </article>
+
+  <article>
+    <h3>Alternative class providers</h3>
+    <p>Different classes can provide the same service. For example, the following code tells the injector to return a BetterLogger instance when the component asks for a logger using the Logger token.</p>
+  </article>
+  <article>
+    <h3>Value provider</h3>
+    <p>Sometimes it's easier to provide a ready-made object rather than ask the injector to create it from a class. To inject an object you have already created, configure the injector with the useValue option
+
+      The following code defines a variable that creates such an object to play the logger role.</p>
+  </article>
+
+  <article>
+    <h3>Factory providers</h3>
+    <p>Sometimes you need to create a dependent value dynamically, based on information you won't have until run time. For example, you might need information that changes repeatedly in the course of the browser session. Also, your injectable service might not have independent access to the source of the information.
+
+      In cases like this you can use a factory provider. Factory providers can also be useful when creating an instance of a dependency from a third-party library that wasn't designed to work with DI.
+      
+      For example, suppose HeroService must hide secret heroes from normal users. Only authorized users should see secret heroes.
+      
+      Like EvenBetterLogger, HeroService needs to know if the user is authorized to see secret heroes. That authorization can change during the course of a single application session, as when you log in a different user.
+      
+      Let's say you don't want to inject UserService directly into HeroService, because you don't want to complicate that service with security-sensitive information. HeroService won't have direct access to the user information to decide who is authorized and who isn't.
+      
+      To resolve this, we give the HeroService constructor a boolean flag to control display of secret heroes.</p>
+  </article>
+  <div class="container">
+    <!-- <mat-toolbar class="header">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        My Application
+        <span class="toolbar-spacer"><button mat-button class="a_color">Accent</button>  </span>
+      </mat-toolbar> -->
+  
+  <mat-sidenav-container class="content">
+    <mat-sidenav mode="side" #sidenav position="start" class="sidenav-content">
+      <h3 style="text-align: center;">Navigation Menu</h3>
+      <ul class="nav_ul">
+        <li routerLinkActive="router-link-active" ><a [routerLink]="['/home']" >Home</a></li>
+        <li><a [routerLink]="['/about us']" >About Us</a></li>
+        <li><a [routerLink]="['/blog']"  >Blog</a></li>
+        <li><a [routerLink]="['/contact us']"  >Contact Us</a></li>
+      </ul>
+    </mat-sidenav>
+    <mat-sidenav-content>
+     
+      <div class="main-content">
+        
+      </div>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  </div>
+</section>
+

@@ -1,0 +1,47 @@
+<h1 mat-dialog-title style="text-align: center;">Registration Form</h1>
+<div mat-dialog-content>
+        <form class="example-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                <mat-form-field class="example-full-width">
+                        <input type="text" placeholder="First Name" matInput formControlName="firstName">
+
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                        <input type="text" placeholder="Last Name" matInput formControlName="lastName"
+                                class="input_width">
+                </mat-form-field><br>
+                <mat-form-field class="example-full-width">
+                        <input type="text" placeholder="Contact Number*" matInput formControlName="contactNumber"
+                                class="input_width">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                        <input type="email" placeholder="Email" matInput formControlName="email" class="input_width">
+                </mat-form-field><br>
+                <mat-form-field class="example-full-width">
+
+                        <input matInput [matDatepicker]="picker" placeholder="Date Of Birth" matInput
+                                formControlName="dateOfBirth" class="input_width">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                        <input matInput placeholder="year" formControlName="dateOfBirth">
+                </mat-form-field>
+                <span *ngIf="registrationForm.get('dateOfBirth').error?.isDateFalse">Required</span><br>
+                <mat-form-field class="example-full-width">
+                        <input type="text" placeholder="User Name" matInput formControlName="userName"
+                                class="input_width">
+                </mat-form-field><br>
+                <mat-form-field class="example-full-width">
+                        <input type="password" placeholder="Password" matInput formControlName="userPassword"
+                                class="input_width">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                        <input type="password" placeholder="Confirm Password" matInput formControlName="confirmPassword"
+                                class="input_width">
+                </mat-form-field><br>
+        </form>
+</div>
+<div class="text_align">
+        <button mat-raised-button (click)="onNoClick()" class="cancel_btn">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" class="sub_btn">Submit</button>
+</div>

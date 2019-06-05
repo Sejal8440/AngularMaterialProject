@@ -1,0 +1,10 @@
+.field_wid{
+    width: 50%;
+}
+fieldset {
+    font-size:14px;
+    padding:5px;
+    width:500px;
+    line-height:1.8;
+    margin: 0 auto;    
+}

@@ -1,0 +1,36 @@
+      <div class="container">
+        <mat-toolbar class="header">
+            <button mat-icon-button (click)="sidenav.toggle()">
+              <mat-icon>menu</mat-icon>
+            </button>
+            My Application
+            <span class="toolbar-spacer">
+                <button mat-button class="a_color" routerLink="/create demo"> Create Demo </button>
+                <!-- <a class="nav-link" routerLink="/create demo">create damo </a> -->
+                <a href=""></a>
+              <button mat-button (click)="loginForm()" *ngIf="isLoggedIn">Login</button> 
+              <button  mat-button *ngIf="!isLoggedIn" (click)="logOut()">Logout</button>             
+            </span>
+
+            
+          </mat-toolbar>
+
+    <mat-sidenav-container class="content">
+        <mat-sidenav mode="side" #sidenav position="start" class="sidenav-content">
+          <h3 style="text-align: center;">Navigation Menu</h3>
+          <ul class="nav_ul">
+            <li routerLinkActive="router-link-active" ><a [routerLink]="['/home']" >Home</a></li>
+            <li><a [routerLink]="['/about us']" >About Us</a></li>
+            <li><a [routerLink]="['/blog']"  >Blog</a></li>
+            <li><a [routerLink]="['/contact us']"  >Contact Us</a></li>
+          </ul>
+        </mat-sidenav>
+        <mat-sidenav-content>
+         
+          <div class="main-content">
+            
+          </div>
+          <router-outlet></router-outlet>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+      </div>
