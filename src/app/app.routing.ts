@@ -9,7 +9,7 @@ import { CreateDemoComponent } from './create-demo/create-demo.component';
 import { LoginGuardService } from './login-guard.service';
 
 const arr: Routes = [
-    {path: '', redirectTo: '/home', pathMatch: 'full'},
+    // {path: '', redirectTo: '/home', pathMatch: 'full'},
     {path: 'home', component: HomeComponent},
     {path: 'about us', component: AboutUsComponent},
     {path: 'blog', component: BlogComponent},

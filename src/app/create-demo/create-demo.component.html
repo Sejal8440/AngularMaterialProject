@@ -1,33 +1,65 @@
-<form class="example-form">
+<div [hidden]="submitted">
+<fieldset class="field_wid">
+  <legend style="font-size:20px;"><b> Create Sample:</b></legend>
   
-  <fieldset class="field_wid">
-    <legend>Create Sample:</legend>
+  <form class="example-form" [formGroup]="createDemo" name="sampledemo" (ngSubmit)="onSubmit()">
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Business Name">
-    </mat-form-field><br>
-
-    <label for="singleFile">Business Logo:</label>
-    <input id="singleFile" type="file" />
-
-
-    <mat-file-upload-queue #fileUploadQueue [fileAlias]="'file'"
-      [httpUrl]="'http://localhost:8180/jax-rs-jersey-application-sample'">
-
-      <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index">
-      </mat-file-upload>
-    </mat-file-upload-queue>
+      <input type="text"  matInput placeholder="Business Name" formControlName="bussName" name="bussName" #bussname>
+    </mat-form-field>
+    <div *ngIf="!createDemo.get('bussName').valid && createDemo.get('bussName').touched">
+        <mat-hint align="start">Required</mat-hint>
+    </div>
+    <br>
 
     <mat-form-field class="example-full-width">
-      <textarea matInput placeholder="Description"></textarea>
-    </mat-form-field><br>
-
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Contact Number">
-      </mat-form-field><br>
+      <textarea matInput placeholder="Description" maxlength="500" formControlName="discription" name="discription" #description></textarea>
+      <mat-hint align="start"><strong>Description about your company</strong> </mat-hint>
+    <mat-hint align="end">{{description.value.length}} / 500</mat-hint>
     
-      <mat-form-field class="example-full-width">
-          <input matInput placeholder="Email">
-        </mat-form-field>
-  </fieldset>
+    </mat-form-field>
+    <div *ngIf="!createDemo.get('discription').valid && createDemo.get('discription').touched">
+        <mat-hint align="start">Required</mat-hint>
+    </div>
+   
+    <br>
 
-</form>
+    <mat-form-field class="example-full-width">
+        <span matPrefix>+91 &nbsp;</span>
+      <input matInput name="phone" placeholder="Contact Number" maxlength="10" formControlName="contact" name="contact" #contact>
+      <mat-hint align="end">{{contact.value.length}} / 10</mat-hint>
+    </mat-form-field>
+    <div *ngIf="!createDemo.get('contact').valid && createDemo.get('contact').touched">
+        <mat-hint align="start">Required</mat-hint>
+    </div>
+    <br>
+
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" formControlName="email" name="email" #email>
+    </mat-form-field>
+    <div *ngIf="!createDemo.get('email').valid && createDemo.get('email').touched">
+        <mat-hint align="start">Required</mat-hint>
+    </div><br>
+    <div style="margin-left: 10%" class="btn_cls">
+    <button mat-raised-button color="primary" 
+    style=" margin-right: 10px;" [disabled]="!createDemo.valid">Submit</button>
+    </div>
+    
+  </form>
+</fieldset>
+</div>
+<div [hidden]="!submitted">  
+    <strong>{{createDemo.value.bussName}} </strong>
+    <br>
+    <strong>{{createDemo.value.discription}} </strong>
+    <br>
+    <strong>{{createDemo.value.contact}} </strong>
+    <br>
+    <strong>{{createDemo.value.email}} </strong>
+    <br>
+    <button mat-raised-button color="primary">Confirm</button>
+    <button mat-raised-button color="primary" (click)="submitted=false; createDemo.reset()">Reset</button>
+  </div>
+
+  
+    
+    

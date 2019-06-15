@@ -1,5 +1,6 @@
 .field_wid{
     width: 50%;
+    border: 2px solid #6a5acd;
 }
 fieldset {
     font-size:14px;
@@ -7,4 +8,13 @@ fieldset {
     width:500px;
     line-height:1.8;
     margin: 0 auto;    
+}
+.example-form{
+    margin-left: 20px;
+}
+.example-full-width{
+    width: 50%;
+}
+.btn_cls button{
+   padding: 0px 25px;
 }

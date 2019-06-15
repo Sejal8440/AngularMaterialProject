@@ -1,0 +1,28 @@
+<!-- <div *ngFor="let item of employees">
+    <h2>{{item.id}}</h2>
+    <h3>{{item.name}}</h3>
+    
+</div> -->
+<input type="text" placeholder="enter id" name="id" #idValue>
+<button (click)="getData(idValue.value)">Get Data</button>
+
+    <!-- <h2>{{emp.id}}</h2>
+    <h3>{{emp.name}}</h3>
+    <h1>{{emp.age}}</h1> -->
+
+<table *ngIf="showDataFlag">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Age</th>
+        </tr>
+        
+        <tr  style="background-color: pink;">
+            <!-- <div *ngFor="let item of emp"> -->
+          <td> {{emp.id}} </td>
+          <td> {{emp.name}} </td>
+          <td>{{emp.age}}</td>
+        <!-- </div> -->
+        </tr>
+   
+</table> 

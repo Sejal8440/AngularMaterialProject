@@ -17,7 +17,13 @@ import { DateValidationDirective } from './date-validation.directive';
 import { CreateDemoComponent } from './create-demo/create-demo.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { MatFormFieldModule } from '@angular/material';
+
+import { FileSelectDirective } from 'ng2-file-upload';
 import { MatFileUploadModule } from 'angular-material-fileupload';
+import { MaterialTableComponent } from './material-table/material-table.component';
+import { HttpClientModule } from '@angular/common/http';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+
 
 
 @NgModule({
@@ -32,7 +38,10 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     ReactiveLoginFormComponent,
     RegistrationDialog,
     DateValidationDirective,
-    CreateDemoComponent
+    CreateDemoComponent,
+    FileSelectDirective,
+    MaterialTableComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,8 @@ import { MatFileUploadModule } from 'angular-material-fileupload';
     routing,
     ScrollingModule,
     MatFormFieldModule,
-    MatFileUploadModule  
+    MatFileUploadModule,
+    HttpClientModule
    
   ],
 
